@@ -681,7 +681,7 @@ class BlueZBatteryProviderManager {
   /// Registers a new battery with an optional [source].
   /// You can then use the registered battery to provide it
   /// with [registerBatteryProvider].
-  Future<BlueZBattery> registerBattery(String? source) async {
+  Future<BlueZBattery> registerBattery({String? source}) async {
     var device = BlueZBattery(
         DBusObjectPath('/org/bluez/battery/device_$_nextBatteryId'),
         source: source);

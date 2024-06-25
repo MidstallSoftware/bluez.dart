@@ -7,7 +7,7 @@ void main() async {
   var adapter = client.adapters.first;
   var bpm = adapter.batteryProviderManager;
 
-  var battery = await bpm.registerBattery('Dummy Battery');
+  var battery = await bpm.registerBattery(source: 'Dummy Battery');
   await bpm.registerBatteryProvider(battery);
 
   battery.percentage = 10;

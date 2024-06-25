@@ -2622,7 +2622,7 @@ void main() {
     var adapter = client.adapters[0];
     var bpm = adapter.batteryProviderManager;
 
-    var battery = await bpm.registerBattery('Dummy Battery');
+    var battery = await bpm.registerBattery(source: 'Dummy Battery');
     final provider = await bpm.registerBatteryProvider(battery);
 
     battery.percentage = 10;
