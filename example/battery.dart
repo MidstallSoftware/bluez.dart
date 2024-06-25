@@ -11,6 +11,4 @@ void main() async {
   await bpm.registerBatteryProvider(battery);
 
   battery.percentage = 10;
-
-  while (true) {}
 }
