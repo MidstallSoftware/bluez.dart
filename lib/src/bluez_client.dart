@@ -750,7 +750,7 @@ class BlueZBatteryProvider extends DBusObject {
   Future<DBusMethodResponse> getProperty(String interface, String name) async {
     if (interface == _batteryProviderInterfaceName) {
       if (name == 'Device') {
-        return DBusMethodSuccessResponse([device.path]);
+        return DBusGetPropertyResponse(device.path);
       }
 
       return DBusMethodErrorResponse.unknownProperty();
