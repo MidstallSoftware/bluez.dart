@@ -681,7 +681,7 @@ class BlueZBatteryProviderManager {
   /// Registers a new battery with an optional [source].
   /// You can then use the registered battery to provide it
   /// with [registerBatteryProvider].
-  Future<BlueZBattery> registerBattery(String? source) async {
+  Future<BlueZBattery> registerBattery({String? source}) async {
     var device = BlueZBattery(
         DBusObjectPath('/org/bluez/battery/device_$_nextBatteryId'),
         source: source);
@@ -750,7 +750,7 @@ class BlueZBatteryProvider extends DBusObject {
   Future<DBusMethodResponse> getProperty(String interface, String name) async {
     if (interface == _batteryProviderInterfaceName) {
       if (name == 'Device') {
-        return DBusMethodSuccessResponse([device.path]);
+        return DBusGetPropertyResponse(device.path);
       }
 
       return DBusMethodErrorResponse.unknownProperty();
